@@ -6,10 +6,13 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
+const passport = require('passport');
+const LocalStratagy = require('passport-local')
+const User = require('./models/user')
 
-
-const campgrounds = require('./routes/campgrounds');
-const reviews = require('./routes/reviews');
+const userRoutes = require('./routes/users')
+const campgroundRoutes = require('./routes/campgrounds');
+const reviewRoutes = require('./routes/reviews');
 
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
     useNewUrlParser: true,
